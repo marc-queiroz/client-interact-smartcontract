@@ -16,8 +16,7 @@ contract Professor {
     	owner = msg.sender; // owner contains the contract creator's address. 
     }
     
-    
-    function setProfessor(string fname,string lname, uint id)  {
+    function setProfessor (string fname,string lname, uint id) public {
 	    firstname = fname;
 	    lastname = lname;
 	    collegeid = id;
