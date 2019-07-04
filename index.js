@@ -19,10 +19,11 @@ function init() {
   contractInstance = ProfContract.at('0x79813b97613730932989905869566f2b2d28b1fe');
   console.log (contractInstance);
   
-  var fname = "John";
-  var lname = "Doe";
-  var id = 731;
 }
+
+var fname = "John";
+var lname = "Doe";
+var id = 731;
 
 function getProfessor() {
   contractInstance.getProfessor((error, result) => {
@@ -38,15 +39,12 @@ function getProfessor() {
 }
 
 function setProfessor() {
-
-	contractInstance.setProfessor(fname, lname, id, { from: web3.eth.accounts[0]}, function() {
-		contractInstance.getProfessor((error, result) => {
-			if (!error)
-				console.log("Data: " + result);
-			else
-				console.log("ERROR!");
-		});
-
-
-});
+  contractInstance.setProfessor(fname, lname, id, { from: window.web3.eth.defaultAccount }, function() {
+  	contractInstance.getProfessor((error, result) => {
+  		if (!error)
+  			console.log("Data: " + result);
+  		else
+  			console.log("ERROR!");
+  	});
+  });
 }
